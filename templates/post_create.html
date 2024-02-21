@@ -1,0 +1,18 @@
+{% extends 'default.html' %}
+{% load static %}
+
+{% block title %}
+CreatePost
+{% endblock title %}
+
+{% block content %}
+<h1>Создать пост</h1>
+<br>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+  <input type="submit" class="btn btn-secondary" value="Сохранить"/>
+</form><br>
+<input type="button" class="btn btn-secondary" value="Назад" onclick="javascript:history.go(-1);">
+{% endblock content %}

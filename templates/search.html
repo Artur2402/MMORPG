@@ -1,0 +1,25 @@
+{% extends 'default.html' %}
+
+
+{% block title %}
+Search
+{% endblock title %}
+
+{% block content %}
+<form action="" method="get">
+    {{ filterset.form.as_p }}
+    <input type="submit" class="btn btn-secondary" value="Найти"/>
+</form>
+<hr>
+    {% if search %}
+        <h1>Найдено по вашему запросу</h1>
+        <br>
+            {% for searc in search %}
+                <a href="/post/{{searc.id}}" style="font-size: 20px"><b>{{searc.title}}</b></a><br>
+                <span style="font-size: 12px;"><b>Автор: {{searc.author}} |
+                    Дата публикации: {{searc.date|date:'d.M.Y'}}</b></span><br><hr>
+            {% endfor %}
+    {% else %}
+        <h1>Ничего не найдено</h1>
+    {% endif %}
+{% endblock content %}

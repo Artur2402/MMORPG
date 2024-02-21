@@ -1,0 +1,18 @@
+{% extends 'default.html' %}
+{% load bootstrap4 %}
+{% block title %}ProfileUpdate{% endblock %}
+{% block content %}
+
+<br><br>
+<h2>Редактирование профиля:</h2><br>
+
+<form method="post">
+	{% csrf_token %}
+	{% bootstrap_form form layout='horizontal' %}
+	<br>
+	<a class="btn btn-secondary" href="{% url 'account_change_password' %}" role="button">Изменить пароль</a>
+	<br><br>
+	<a class="btn btn-secondary" href="{% url 'account_profile' %}" role="button">Закрыть</a>
+	<input class="btn btn-secondary" style="background: blue" type="submit" value="Сохранить">
+</form>
+{% endblock content %}
